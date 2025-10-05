@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf Sayang ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #B4D4FF;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10%, 30% {
+                transform: scale(1.1);
+            }
+            20%, 40% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .message p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .button {
+            background: #A0C4FF;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(160, 196, 255, 0.4);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(160, 196, 255, 0.6);
+        }
+
+        .button.secondary {
+            background: #FFB6C1;
+        }
+
+        .reasons {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .reason-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 15px;
+            font-size: 1.1em;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .promise-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .final-message {
+            font-size: 1.5em;
+            color: #764ba2;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .flowers {
+            position: fixed;
+            font-size: 30px;
+            animation: fall 6s linear infinite;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        .emoji-rain {
+            position: fixed;
+            pointer-events: none;
+            font-size: 25px;
+            animation: emojifall 4s linear;
+            z-index: 1000;
+        }
+
+        @keyframes emojifall {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Opening -->
+        <div class="page active" id="page1">
+            <div class="heart">💕</div>
+            <h1>Hai Met...</h1>
+            <div class="message">
+                <p style="text-align: center; font-size: 1.3em;">Aku ada yang mau bilang...</p>
+                <p style="text-align: center; margin-top: 20px;">😔</p>
+            </div>
+            <button class="button" onclick="nextPage(2)">Lanjut →</button>
+        </div>
+
+        <!-- Page 2: Apology -->
+        <div class="page" id="page2">
+            <div class="heart">😔</div>
+            <h1>Maaf My Mett...</h1>
+            <div class="message">
+                <p>Aku minta maaf banget ya karena tadi kita lagi <span class="highlight">deep talk</span> yang penting, tapi aku harus pergi.</p>
+                <p>Aku tahu pembicaraan kita tadi penting banget dan aku gak enak banget harus ninggalin kamu di tengah-tengah. 💔</p>
+            </div>
+            <button class="button" onclick="nextPage(3)">Lanjut →</button>
+        </div>
+
+        <!-- Page 3: Reasons Why I Love You -->
+        <div class="page" id="page3">
+            <div class="heart">💖</div>
+            <h2>Kenapa kamu penting banget buat aku?</h2>
+            <div class="reasons">
+                <div class="reason-item">💝 Kamu selalu sabar sama aku</div>
+                <div class="reason-item">✨ Kamu selalu pengertian</div>
+                <div class="reason-item">🌟 Kamu bikin hari-hari aku lebih berwarna</div>
+                <div class="reason-item">💕 Kamu adalah orang yang spesial buat aku</div>
+            </div>
+            <button class="button" onclick="nextPage(4)">Lanjut →</button>
+        </div>
+
+        <!-- Page 4: Promise -->
+        <div class="page" id="page4">
+            <div class="heart">🤝</div>
+            <h2>Janji Aku...</h2>
+            <div class="promise-box">
+                <p><strong>Aku janji:</strong></p>
+                <p>✓ Kita akan lanjutin pembicaraan kita</p>
+                <p>✓ Aku akan full attention buat kamu</p>
+                <p>✓ Gak akan ada kegiatan yang ganggu lagi</p>
+                <p>✓ Aku akan jadi pendengar yang lebih baik</p>
+                <p style="margin-top: 20px; text-align: center;">💕</p>
+            </div>
+            <button class="button" onclick="nextPage(5)">Lanjut →</button>
+        </div>
+
+        <!-- Page 5: Question -->
+        <div class="page" id="page5">
+            <div class="heart">🥺</div>
+            <h1>Jadi...</h1>
+            <div class="message">
+                <p style="text-align: center; font-size: 1.4em; margin: 40px 0;">
+                    Kamu maafin aku gak? 🥺
+                </p>
+            </div>
+            <button class="button" onclick="nextPage(6)">Iya, aku maafin ❤️</button>
+            <button class="button secondary" onclick="nextPage(7)">Belum... 😢</button>
+        </div>
+
+        <!-- Page 6: Happy Ending -->
+        <div class="page" id="page6">
+            <div class="heart">🎉</div>
+            <h1>Yay! 💕</h1>
+            <div class="final-message">
+                Makasih sayang udah maafin aku! 
+            </div>
+            <div class="message">
+                <p style="text-align: center;">Aku sayang banget sama kamu! 😘</p>
+                <p style="text-align: center; margin-top: 20px;">Kapan kita bisa lanjutin obrolan kita?</p>
+                <p style="text-align: center; margin-top: 30px; font-size: 2em;">💖✨💕🥰💝</p>
+            </div>
+        </div>
+
+        <!-- Page 7: Sad Ending (Try Again) -->
+        <div class="page" id="page7">
+            <div class="heart">😢</div>
+            <h2>Aku ngerti kok...</h2>
+            <div class="message">
+                <p style="text-align: center;">Aku tahu kamu masih kesel sama aku... 💔</p>
+                <p style="text-align: center; margin-top: 20px;">Tapi aku beneran minta maaf ya sayang...</p>
+                <p style="text-align: center; margin-top: 20px;">Aku akan buktiin kalau aku serius! 🥺</p>
+            </div>
+            <button class="button" onclick="nextPage(1)">Mulai dari awal lagi</button>
+            <button class="button secondary" onclick="nextPage(8)">Kasih satu kesempatan lagi 💝</button>
+        </div>
+
+        <!-- Page 8: Second Chance -->
+        <div class="page" id="page8">
+            <div class="heart">🙏</div>
+            <h2>Makasih sayang! 💕</h2>
+            <div class="message">
+                <p style="text-align: center;">Makasih udah kasih aku kesempatan...</p>
+                <p style="text-align: center; margin-top: 20px;">Aku janji akan lebih baik lagi! ✨</p>
+                <p style="text-align: center; margin-top: 30px; font-size: 1.3em;">
+                    <strong>I love you so much! 💖</strong>
+                </p>
+                <p style="text-align: center; margin-top: 30px; font-size: 2em;">😘💕🥰💝✨</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function createFlower() {
+            const flowers = ['🌸', '🌺', '🌹', '💐', '🌷', '🌻'];
+            const flower = document.createElement('div');
+            flower.className = 'flowers';
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + '%';
+            flower.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(flower);
+            
+            setTimeout(() => flower.remove(), 6000);
+        }
+
+        setInterval(createFlower, 800);
+
+        function nextPage(pageNum) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            document.getElementById('page' + pageNum).classList.add('active');
+            currentPage = pageNum;
+            
+            // Update progress bar
+            const progress = (pageNum / 8) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Special effects for happy ending
+            if (pageNum === 6 || pageNum === 8) {
+                createEmojiRain();
+            }
+        }
+
+        function createEmojiRain() {
+            const emojis = ['💕', '💖', '💗', '💝', '💓', '❤️', '💘', '😘', '🥰', '😍', '✨', '🎉'];
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'emoji-rain';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * 100 + '%';
+                    emoji.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(emoji);
+                    
+                    setTimeout(() => emoji.remove(), 4000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
